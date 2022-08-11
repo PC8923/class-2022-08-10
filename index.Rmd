@@ -14,9 +14,6 @@ library(tidyverse)
 ```{r}
 ec <- read_rds("superior-ec.rds")
 ec |>
-  group_by(state) |> 
-  summarise(pop_state = sum(pop2018),
-            avg_ec = mean(ec_county)) |> 
   ggplot(aes(x = pop_state, y = avg_ec)) +
   geom_point() +
   geom_smooth(method = "lm", formula = y ~ x, se = FALSE) +
